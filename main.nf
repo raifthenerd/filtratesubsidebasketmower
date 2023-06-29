@@ -14,10 +14,10 @@ process simulate {
   script:
   if (params.no_gsm)
     """
-    julia -t ${params.cpus} -L /data/src/main.jl -e 'train()' $input cache -n ${params.num_epoch} -b ${params.batch_size} --no_gsm
+    julia -t ${params.cpus} -L /data/src/main.jl -e 'main()' $input cache -n ${params.num_epoch} -b ${params.batch_size} --no_gsm
     """
   else
     """
-    julia -t ${params.cpus} -L /data/src/main.jl -e 'train()' $input cache -n ${params.num_epoch} -b ${params.batch_size}
+    julia -t ${params.cpus} -L /data/src/main.jl -e 'main()' $input cache -n ${params.num_epoch} -b ${params.batch_size}
     """
 }
